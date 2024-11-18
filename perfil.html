@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infos Secretas 🤓</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Infos Secretas 🤓</h1>
+    </header>
+    <main class="main-content">
+      <img src="erm actually.jpg" width="20%" alt="">
+      <h2>Dados do Usuário</h2>
+      <p>Nome:<span id="nomeUsuario"></span></p>
+      <p>Email: <span id="emailUsuario"></span></p>
+      <p>Telefone: <span id="telefoneUsuario"></span></p>
+      <p>CPF:<span id="cpfUsuario"></span></p>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const userData = JSON.parse(localStorage.getItem('usuario'));
+      if (userData) {
+        document.getElementById('nomeUsuario').textContent = userData.nome;
+        document.getElementById('emailUsuario').textContent = userData.email;
+        document.getElementById('telefoneUsuario').textContent = userData.telefone;
+        document.getElementById('cpfUsuario').textContent = userData.cpf;
+      } else {
+        alert('Nenhum usuário cadastrado.');
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+</body>
+</html>
